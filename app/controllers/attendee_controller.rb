@@ -1,12 +1,11 @@
-class AttendeeController < ApplicationController
-  attr_accessor :date, :body
+class AttendeesController < ApplicationController
   def index
     @attendee = Attendee.new
-    @attendees = current_user.items
+    @attendees = attendees
   end
 
   def create
-    @attendee = current_user.items.create(date: params[:item][:date], body: params[:item][:body])
+    @attendee = attendees.create(date: params[:item][:date], body: params[:item][:body])
     redirect_to attendees_path
   end
 
