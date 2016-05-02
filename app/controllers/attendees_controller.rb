@@ -1,12 +1,12 @@
-class HostController < ApplicationController
+class AttendeesController < ApplicationController
+  attr_accessor :date, :body
   def index
-    @attendees = Attendee.new
-    #@date = Date.new
-    #@attendees = current_user.attendees
+    @attendee = Attendee.new
+    @attendees = attendees
   end
 
   def create
-    @attendee = current_user.items.create(date: params[:item][:date], body: params[:item][:body])
+    attendee = Attendee.create({name: params[:attendee][:name]})#, email: params[:attendee][:email]})
     redirect_to attendees_path
   end
 
@@ -20,6 +20,5 @@ class HostController < ApplicationController
     @attendee = current_user.attendees.find_by(params[:id])
     @keywords = @attendee.keywords
   end
-
 
 end
