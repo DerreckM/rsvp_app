@@ -1,10 +1,21 @@
 <center>
 <h1>Welcome to Josh's Birthday Party RSVP Page!</h1>
 <img src="http://40.media.tumblr.com/e8edcfafe936c129edaad93be03539ce/tumblr_inline_nyz8zbtDJg1rcncm1_400.jpg" width="320" height="320">
+<h3>Date: 14 March 2017</h3>
+<h3>Time: 8:00 PM</h3>
+<h3>Location: 8492 Main St.</h3>
+<h3>"Come celebrate my birthday!"</h3>
 <%= form_for(@attendees) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :email %>
+  <%= f.label :message %>
   <%= f.submit %>
+<% end %>
+<h2>List of attendees:</h2>
+<% @brandts.each do |attendee| %>
+  <div>
+  <%= attendee.name %>
+  </div>
 <% end %>
 </center>
